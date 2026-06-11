@@ -4,196 +4,374 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop</title>
+    <title>Shop - La Foudre</title>
     <link rel="icon" type="image/png" href="logo/logoLF.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
-        :root {
-            --accent-color: #6c757d;
-        }
-
-        body {
-            background-color: #f8f9fa;
-        }
-
-        /* SIDEBAR */
-        .sidebar {
-            background-color: #fff;
-            height: calc(100vh - 76px);
-            position: fixed;
-            top: 76px;
-            left: 0;
-            width: 250px;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.06);
-            padding-top: 20px;
-        }
-
-        .main-content {
-            margin-left: 250px;
-            padding: 15px 30px 40px;
-        }
-
-        .section-title {
-            font-weight: 400;
-            letter-spacing: 1px;
-            margin-bottom: 2.5rem;
+        /* ================= JALUR KHUSUS SHOP INTERAKTIF ================= */
+        .shop-header-section {
+            background: #111;
+            color: #fff;
+            padding: 50px 0;
             text-align: center;
-            position: relative;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
         }
 
-        .section-title::after {
-            content: "";
-            display: block;
-            width: 60px;
-            height: 2px;
-            background: var(--accent-color);
-            margin: 12px auto 0;
-        }
-
-        .collection-filter {
-            list-style: none;
-            padding: 0;
+        .shop-header-section h1 {
+            font-weight: bold;
+            font-size: 2.2rem;
             margin: 0;
         }
 
-        .collection-filter li {
-            padding: 12px 22px;
-            border-bottom: 1px solid #eee;
-            background: #f7f7f7;
+        /* SIDEBAR FILTER (DESKTOP) */
+        .sidebar-filter {
+            background: #fff;
+            padding: 24px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, .04);
+            position: sticky;
+            top: 100px;
         }
 
-        .collection-filter li a {
-            text-decoration: none;
-            color: #212529;
-            font-weight: 500;
+        .filter-header-wrapper {
+            border-bottom: 2px solid #111;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
         }
 
-        /* PRODUCT GRID */
-        .product-item {
-            display: flex;
+        .filter-title {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0;
         }
 
-        .product-item .card {
-            width: 100%;
-            min-height: 500px;
-            border-radius: 0;
-            overflow: hidden;
-            border: none;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+        .filter-subtitle {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            color: #111;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .product-item .card-img-top {
-            width: 100%;
-            height: 320px;
-            object-fit: cover;
+        .filter-link {
             display: block;
+            color: #555;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin-bottom: 4px;
+            transition: 0.2s ease;
+            font-weight: 600;
+            font-size: 0.95rem;
         }
 
-        .product-item .card-body {
+        .filter-link:hover,
+        .filter-link.active {
+            background: #111;
+            color: #fff !important;
+        }
+
+        /* NEW INTEGRATED SEARCH BAR SYSTEM */
+        .sidebar-search-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-search-box .search-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .sidebar-search-input-new {
+            width: 100%;
+            height: 44px;
+            padding: 0 14px 0 40px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #111;
+            background: #f8f9fa;
+            outline: none;
+            transition: all 0.25s ease;
+        }
+
+        .sidebar-search-input-new:focus {
+            background: #fff;
+            border-color: #111;
+            box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.05);
+        }
+
+        .sidebar-search-input-new:focus+.search-icon {
+            color: #111;
+        }
+
+        /* BUTTON UKURAN */
+        .size-filter-wrapper {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .size-filter-btn {
+            width: 44px;
+            height: 44px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #fff;
+            font-weight: 600;
+            transition: 0.25s ease;
+            cursor: pointer;
+        }
+
+        .size-filter-btn:hover,
+        .size-filter-btn.active {
+            background: #111;
+            color: #fff;
+            border-color: #111;
+        }
+
+        /* === FILTER MOBILE CONTROL BUTTON === */
+        .mobile-top-controls {
+            display: none;
+            margin-bottom: 25px;
+        }
+
+        .btn-filter-mobile {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #111;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: .25s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-filter-mobile:hover {
+            background: #222;
+        }
+
+        /* MOBILE RESPONSIVE LAYOUT TRIGGER */
+        @media(max-width:991px) {
+            .mobile-top-controls {
+                display: block;
+            }
+        }
+
+        /* KATALOG PRODUK CLEAN */
+        .catalog-title {
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            transition: .3s ease;
+            height: 100%;
             display: flex;
             flex-direction: column;
-            padding: 18px;
+            text-decoration: none;
+            color: initial;
         }
 
-        .product-item .card-title {
-            font-size: 1rem;
-            min-height: 48px;
-            margin-bottom: 8px;
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            color: initial;
         }
 
-        .price {
-            font-weight: 500;
-            margin-bottom: 12px;
-        }
-
-        .coming-soon {
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            min-height: 20px;
-        }
-
-        .buy-btn {
+        .product-card img {
             width: 100%;
-            border-radius: 0;
-            padding: 10px;
-            font-size: 0.9rem;
+            height: 280px;
+            object-fit: cover;
+            background-color: #f1f1f1;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 991px) {
-            .sidebar {
-                display: none;
-            }
+        .product-body {
+            padding: 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-            .main-content {
-                margin-left: 0;
-                padding: 20px 10px;
+        .product-name {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #111;
+        }
+
+        .product-price {
+            color: #6c757d;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0px;
+        }
+
+        .size-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 4px 9px;
+            background: #eee;
+            color: #333;
+            border-radius: 4px;
+            margin: 0 2px;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+
+        .size-badge.highlight {
+            background: #111;
+            color: #fff;
+        }
+
+        @media(max-width:991px) {
+            .product-card img {
+                height: 220px;
+            }
+        }
+
+        @media(max-width:576px) {
+            .product-card img {
+                height: 160px;
             }
 
             .row.g-4 {
                 --bs-gutter-x: 10px;
-                --bs-gutter-y: 14px;
+                --bs-gutter-y: 10px;
             }
 
-            .product-item .card {
-                min-height: 320px;
+            .shop-header-section h1 {
+                font-size: 1.6rem;
             }
+        }
 
-            .product-item .card-img-top {
-                height: 150px;
-                object-fit: cover;
-            }
+        .product-image-container {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+        }
 
-            .product-item .card-body {
-                padding: 10px;
-            }
+        .product-image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.4s ease-in-out;
+        }
 
-            .product-item .card-title {
-                font-size: 0.72rem;
-                min-height: 34px;
-                margin-bottom: 4px;
-            }
+        .product-image-container .img-back {
+            opacity: 0;
+        }
 
-            .coming-soon {
-                font-size: 0.65rem;
-                margin-bottom: 2px;
-            }
+        .product-card:hover .img-front {
+            opacity: 0;
+        }
 
-            .price {
-                font-size: 0.75rem;
-                margin-bottom: 8px;
-            }
+        .product-card:hover .img-back {
+            opacity: 1;
+        }
 
-            .buy-btn {
-                font-size: 0.7rem;
-                padding: 6px;
+        @media(max-width:991px) {
+            .product-image-container {
+                height: 220px;
             }
+        }
+
+        @media(max-width:576px) {
+            .product-image-container {
+                height: 160px;
+            }
+        }
+
+        /* Gaya Tampilan Sold Out */
+        .product-item[data-status="soldout"] {
+            position: relative;
+        }
+
+        .product-item[data-status="soldout"] .product-card {
+            pointer-events: none;
+            opacity: 0.65;
+        }
+
+        .product-item[data-status="soldout"] .product-image-container::after {
+            content: "SOLD OUT";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            font-family: sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+        }
+
+        /* Gaya Tampilan Pesan No Product */
+        .no-product-message {
+            width: 100%;
+            text-align: center;
+            padding: 80px 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #888;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top custom-navbar">
         <div class="container custom-nav-container">
-
-            <!-- Logo -->
             <a class="navbar-brand d-flex align-items-center" href="index.html">
                 <img src="logo/logoLF.png" alt="Lafoudre Logo">
             </a>
 
-            <!-- Hamburger Button -->
             <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#mobileMenu" aria-controls="mobileMenu">
-
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Desktop Menu -->
             <div class="collapse navbar-collapse d-none d-lg-flex">
                 <ul class="navbar-nav mx-auto align-items-lg-center">
                     <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
@@ -205,130 +383,177 @@
         </div>
     </nav>
 
-    <!-- MOBILE SIDEBAR -->
     <div class="offcanvas offcanvas-end custom-sidebar" tabindex="-1" id="mobileMenu">
-
         <div class="offcanvas-header">
             <h5 class="offcanvas-title text-white">MENU</h5>
-
             <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas">
             </button>
         </div>
-
         <div class="offcanvas-body">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="shop.html">Shop</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="lookbook.html">Look Book</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="community.html">Community</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+                <li class="nav-item"><a class="nav-link" href="lookbook.html">Look Book</a></li>
+                <li class="nav-item"><a class="nav-link" href="community.html">Community</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
             </ul>
         </div>
     </div>
 
-    <!-- SIDEBAR -->
-    <div class="sidebar">
-        <h4 class="px-3 mb-4">Collections</h4>
-        <ul class="collection-filter">
-            <li><a href="#">All Products</a></li>
-        </ul>
-    </div>
+    <section class="shop-header-section">
+        <div class="container">
+            <h1>OUR COLLECTIONS</h1>
+        </div>
+    </section>
 
-    <!-- MAIN CONTENT -->
-    <div class="main-content">
-        <h2 class="section-title fw-bolder">Our Collections</h2>
+    <section class="container pb-5">
+
+        <div class="mobile-top-controls">
+            <button class="btn-filter-mobile" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#mobileFilterSidebar">
+                <i class="fa-solid fa-sliders"></i> Filter & Search
+            </button>
+        </div>
 
         <div class="row g-4">
 
-            <!-- PRODUCT 1 -->
-            <div class="col-6 col-sm-6 col-lg-4 col-xl-3 product-item">
-                <div class="card">
-                    <img src="image/look21.jpg" class="card-img-top" alt="Oversized Tee Alpha">
-                    <div class="card-body text-center">
-                        <div>
-                            <h5 class="card-title"> LA FOUDRE BLACKED SWEATPANTS</h5>
-                            <p class="text-muted coming-soon">Available</p>
-                            <p class="price">Rp 299.000</p>
-                        </div>
+            <!-- DESKTOP SIDEBAR -->
+            <div class="col-lg-3 d-none d-lg-block">
+                <div class="sidebar-filter">
+                    <div class="filter-header-wrapper">
+                        <h5 class="filter-title">Collections</h5>
+                    </div>
 
-                        <a href="https://shopee.co.id/LA-FOUDRE-BLACKED-SWEATPANTS-i.1658719413.57453653271?extraParams=%7B%22display_model_id%22%3A335372365712%2C%22model_selection_logic%22%3A3%7D"
-                            target="_blank" class="btn btn-dark buy-btn mt-auto">
-                            Buy Now
-                        </a>
+                    <!-- SEARCH BAR DI BAWAH GARIS COLLECTIONS -->
+                    <div class="sidebar-search-box">
+                        <input type="text" id="searchProductDesktop" class="sidebar-search-input-new"
+                            placeholder="Search our collections...">
+                        <i class="bi bi-search search-icon"></i>
+                    </div>
+
+                    <a href="#" class="filter-link active" data-filter="all" onclick="filterCategory(event, 'all')">All
+                        Products</a>
+                    <a href="#" class="filter-link" data-filter="Tops" onclick="filterCategory(event, 'Tops')">Tops</a>
+                    <a href="#" class="filter-link" data-filter="Bottoms"
+                        onclick="filterCategory(event, 'Bottoms')">Bottoms</a>
+                    <a href="#" class="filter-link" data-filter="Outerwear"
+                        onclick="filterCategory(event, 'Outerwear')">Outerwear</a>
+
+                    <h5 class="filter-subtitle">Filter By Size</h5>
+                    <div class="size-filter-wrapper">
+                        <button class="size-filter-btn" onclick="filterSize(this, 'S')">S</button>
+                        <button class="size-filter-btn active" onclick="filterSize(this, 'M')">M</button>
+                        <button class="size-filter-btn" onclick="filterSize(this, 'L')">L</button>
+                        <button class="size-filter-btn" onclick="filterSize(this, 'XL')">XL</button>
                     </div>
                 </div>
             </div>
 
-            <!-- PRODUCT 2 -->
-            <div class="col-6 col-sm-6 col-lg-4 col-xl-3 product-item">
-                <div class="card">
-                    <img src="image/look21.jpg" class="card-img-top" alt="Oversized Tee Alpha">
-                    <div class="card-body text-center">
-                        <div>
-                            <h5 class="card-title"> LA FOUDRE BLACKED SWEATPANTS</h5>
-                            <p class="text-muted coming-soon">Available</p>
-                            <p class="price">Rp 299.000</p>
-                        </div>
+            <div class="col-lg-9">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
+                    <h3 class="catalog-title mb-0" id="catalogTitle">ALL PRODUCTS</h3>
+                </div>
 
-                        <a href="https://shopee.co.id/LA-FOUDRE-BLACKED-SWEATPANTS-i.1658719413.57453653271?extraParams=%7B%22display_model_id%22%3A335372365712%2C%22model_selection_logic%22%3A3%7D"
-                            target="_blank" class="btn btn-dark buy-btn mt-auto">
-                            Buy Now
+                <div class="row g-4" id="productGrid">
+                    <div id="noProductMessage" class="no-product-message" style="display: none;">
+                        <i class="bi bi-bag-x d-block mb-2" style="font-size: 2rem;"></i> No Product Available
+                    </div>
+
+                    <!-- Kategori tops-->
+                    <div class="col-6 col-md-4 product-item" data-category="Tops" data-sizes="M,L,XL">
+                        <a href="detail1a.html" class="product-card">
+                            <div class="product-image-container">
+                                <img src="image/det1a.png" class="img-front"
+                                    onerror="this.src='https://placehold.co/400x530?text=Tops+1+Front'"
+                                    alt="Tops 1 Front">
+                                <img src="image/det1b.png" class="img-back"
+                                    onerror="this.src='https://placehold.co/400x530?text=Tops+1+Back'"
+                                    alt="Tops 1 Back">
+                            </div>
+                            <div class="product-body">
+                                <div class="product-name">DEVIL 777 LONGSLEEVE WAFFLE</div>
+                                <div class="product-price">Rp 225.000</div>
+                            </div>
                         </a>
                     </div>
-                </div>
-            </div>
-
-            <!-- PRODUCT 3 -->
-            <div class="col-6 col-sm-6 col-lg-4 col-xl-3 product-item">
-                <div class="card">
-                    <img src="image/look21.jpg" class="card-img-top" alt="Oversized Tee Alpha">
-                    <div class="card-body text-center">
-                        <div>
-                            <h5 class="card-title"> LA FOUDRE BLACKED SWEATPANTS</h5>
-                            <p class="text-muted coming-soon">Available</p>
-                            <p class="price">Rp 299.000</p>
-                        </div>
-
-                        <a href="https://shopee.co.id/LA-FOUDRE-BLACKED-SWEATPANTS-i.1658719413.57453653271?extraParams=%7B%22display_model_id%22%3A335372365712%2C%22model_selection_logic%22%3A3%7D"
-                            target="_blank" class="btn btn-dark buy-btn mt-auto">
-                            Buy Now
+                    <div class="col-6 col-md-4 product-item" data-category="Tops" data-sizes="M,L,XL">
+                        <a href="detail1b.html" class="product-card">
+                            <div class="product-image-container">
+                                <img src="image/det2a.png" class="img-front"
+                                    onerror="this.src='https://placehold.co/400x530?text=Tops+1+Front'"
+                                    alt="Tops 1 Front">
+                                <img src="image/det2b.png" class="img-back"
+                                    onerror="this.src='https://placehold.co/400x530?text=Tops+1+Back'"
+                                    alt="Tops 1 Back">
+                            </div>
+                            <div class="product-body">
+                                <div class="product-name">T.H.U.G Longsleeve</div>
+                                <div class="product-price">Rp 225.000</div>
+                            </div>
                         </a>
                     </div>
-                </div>
-            </div>
 
-            <!-- PRODUCT 4 -->
-            <div class="col-6 col-sm-6 col-lg-4 col-xl-3 product-item">
-                <div class="card">
-                    <img src="image/look21.jpg" class="card-img-top" alt="Oversized Tee Alpha">
-                    <div class="card-body text-center">
-                        <div>
-                            <h5 class="card-title"> LA FOUDRE BLACKED SWEATPANTS</h5>
-                            <p class="text-muted coming-soon">Available</p>
-                            <p class="price">Rp 299.000</p>
-                        </div>
-
-                        <a href="https://shopee.co.id/LA-FOUDRE-BLACKED-SWEATPANTS-i.1658719413.57453653271?extraParams=%7B%22display_model_id%22%3A335372365712%2C%22model_selection_logic%22%3A3%7D"
-                            target="_blank" class="btn btn-dark buy-btn mt-auto">
-                            Buy Now
+                    <!-- Kategori bottoms-->
+                    <div class="col-6 col-md-4 product-item" data-category="Bottoms" data-sizes="S,M">
+                        <a href="detail2a.html" class="product-card">
+                            <div class="product-image-container">
+                                <img src="image/det3a.jpg" class="img-front"
+                                    onerror="this.src='https://placehold.co/400x530?text=Bottoms+1+Front'"
+                                    alt="Tops 1 Front">
+                                <img src="image/det3b.jpg" class="img-back"
+                                    onerror="this.src='https://placehold.co/400x530?text=Bottoms+1+Back'"
+                                    alt="Tops 1 Back">
+                            </div>
+                            <div class="product-body">
+                                <div class="product-name">La Foudre Blacked Sweatpants</div>
+                                <div class="product-price">Rp 275.000</div>
+                            </div>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- MOBILE FILTER SIDEBAR -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileFilterSidebar"
+        style="width: 280px; border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold" style="font-size: 1.1rem;">FILTER & SEARCH</h5>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="sidebar-filter p-0 shadow-none">
+
+                <div class="filter-header-wrapper">
+                    <h5 class="filter-title" style="font-size: 0.95rem;">Collections</h5>
+                </div>
+
+                <!-- SEARCH BAR DI MOBILE JUGA BERADA DI BAWAH GARIS COLLECTIONS -->
+                <div class="sidebar-search-box">
+                    <input type="text" id="searchProductMobile" class="sidebar-search-input-new"
+                        placeholder="Search our collections...">
+                    <i class="bi bi-search search-icon"></i>
+                </div>
+
+                <a href="#" class="filter-link active" data-filter="all" onclick="filterCategory(event, 'all')">All
+                    Products</a>
+                <a href="#" class="filter-link" data-filter="Tops" onclick="filterCategory(event, 'Tops')">Tops</a>
+                <a href="#" class="filter-link" data-filter="Bottoms"
+                    onclick="filterCategory(event, 'Bottoms')">Bottoms</a>
+                <a href="#" class="filter-link" data-filter="Outerwear"
+                    onclick="filterCategory(event, 'Outerwear')">Outerwear</a>
+
+                <h5 class="filter-subtitle">Filter By Size</h5>
+                <div class="size-filter-wrapper">
+                    <button class="size-filter-btn" onclick="filterSize(this, 'S')">S</button>
+                    <button class="size-filter-btn active" onclick="filterSize(this, 'M')">M</button>
+                    <button class="size-filter-btn" onclick="filterSize(this, 'L')">L</button>
+                    <button class="size-filter-btn" onclick="filterSize(this, 'XL')">XL</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container text-center">
             <p class="mb-0">&copy; 2026 La Foudre</p>
@@ -336,8 +561,104 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
 
+    <script>
+        let currentCategory = 'all';
+        let currentSize = 'M';
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.body.classList.add('page-loaded');
+            applyFilters();
+
+            const searchDesktop = document.getElementById('searchProductDesktop');
+            const searchMobile = document.getElementById('searchProductMobile');
+
+            // Sinkronisasi data ketikan realtime antara desktop & mobile secara otomatis
+            if (searchDesktop) {
+                searchDesktop.addEventListener('input', function () {
+                    if (searchMobile) searchMobile.value = this.value;
+                    applyFilters();
+                });
+            }
+
+            if (searchMobile) {
+                searchMobile.addEventListener('input', function () {
+                    if (searchDesktop) searchDesktop.value = this.value;
+                    applyFilters();
+                });
+            }
+        });
+
+        function filterCategory(event, category) {
+            if (event) event.preventDefault();
+            currentCategory = category;
+
+            const catalogTitle = document.getElementById('catalogTitle');
+            if (catalogTitle) {
+                catalogTitle.innerText = category === 'all' ? 'ALL PRODUCTS' : category.toUpperCase();
+            }
+
+            const filterLinks = document.querySelectorAll('.filter-link');
+            filterLinks.forEach(link => {
+                if (link.getAttribute('data-filter') === category) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            applyFilters();
+        }
+
+        function filterSize(buttonElement, size) {
+            currentSize = size;
+
+            const allSizeButtons = document.querySelectorAll('.size-filter-btn');
+            allSizeButtons.forEach(btn => {
+                if (btn.innerText.trim() === size) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const searchDesktop = document.getElementById('searchProductDesktop');
+            const searchInput = searchDesktop ? searchDesktop.value.toLowerCase().trim() : "";
+            const products = document.querySelectorAll('.product-item');
+            let visibleCount = 0;
+
+            products.forEach(product => {
+                const category = product.getAttribute('data-category');
+                const sizesAttribute = product.getAttribute('data-sizes');
+                const sizes = sizesAttribute ? sizesAttribute.split(',') : [];
+                const name = product.querySelector('.product-name').innerText.toLowerCase();
+
+                const matchesCategory = (currentCategory === 'all' || category === currentCategory);
+                const matchesSize = (currentSize === 'all' || sizes.includes(currentSize));
+                const matchesSearch = (searchInput === '' || name.includes(searchInput));
+
+                if (matchesCategory && matchesSize && matchesSearch) {
+                    product.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+
+            const noProductMessage = document.getElementById('noProductMessage');
+            if (noProductMessage) {
+                if (visibleCount === 0) {
+                    noProductMessage.style.display = 'block';
+                } else {
+                    noProductMessage.style.display = 'none';
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

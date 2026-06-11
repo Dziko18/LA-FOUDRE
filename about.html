@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>About - La Foudre</title>
     <link rel="icon" type="image/png" href="logo/logoLF.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -33,31 +33,25 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg sticky-top custom-navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top custom-navbar">
         <div class="container custom-nav-container">
-
-            <!-- Logo -->
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
                 <img src="logo/logoLF.png" alt="Lafoudre Logo">
             </a>
 
-            <!-- Hamburger -->
             <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#mobileMenu">
-
+                data-bs-target="#mobileMenu" aria-controls="mobileMenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Desktop Menu -->
-            <div class="collapse navbar-collapse d-none d-lg-flex justify-content-center">
-                <ul class="navbar-nav align-items-center">
+            <div class="collapse navbar-collapse d-none d-lg-flex">
+                <ul class="navbar-nav mx-auto align-items-lg-center">
                     <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
                     <li class="nav-item"><a class="nav-link" href="lookbook.html">Look Book</a></li>
                     <li class="nav-item"><a class="nav-link" href="community.html">Community</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                 </ul>
             </div>
-
         </div>
     </nav>
 
