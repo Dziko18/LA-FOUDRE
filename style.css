@@ -72,21 +72,16 @@ body.page-loaded {
 /* semua tulisan menu navbar */
 .navbar-nav .nav-link {
     color: #111 !important;
-
     font-family: 'Segoe UI', sans-serif;
-
     font-size: 1rem;
 
-    font-weight: 700;
+    font-weight: 400;
+    /* DIUBAH DARI 700 KE 400 */
 
     letter-spacing: 0.5px;
-
     margin: 0 10px;
-
     padding: 8px 4px;
-
     position: relative;
-
     transition: 0.25s ease;
 }
 
@@ -155,19 +150,15 @@ body.page-loaded {
 /* menu sidebar */
 .custom-sidebar .nav-link {
     color: #111 !important;
-
     font-family: 'Segoe UI', sans-serif;
-
     font-size: 1rem;
 
-    font-weight: 700;
+    font-weight: 400;
+    /* DIUBAH DARI 700 KE 400 */
 
     letter-spacing: 0.5px;
-
     padding: 14px 0;
-
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-
     transition: all 0.3s ease;
 }
 
